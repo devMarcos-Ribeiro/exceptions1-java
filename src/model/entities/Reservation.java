@@ -14,7 +14,7 @@ public class Reservation {
 	private Date checkIn;
 	private Date checkOut;
 	
-	public Reservation(int roomNumber, Date checkIn, Date checkOut) throws DomainException{
+	public Reservation(int roomNumber, Date checkIn, Date checkOut) {
 		if(!checkOut.after(checkIn)){
 			throw new DomainException("Reservation dates for updates must be future dates!");
 		}
@@ -45,7 +45,7 @@ public class Reservation {
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);	
 	}
 	
-	public void updateDates(Date checkIn, Date checkOut) throws DomainException {
+	public void updateDates(Date checkIn, Date checkOut) {
 		Date now = new Date();
 		if(checkIn.before(now)||checkOut.before(now)) {
 			throw new DomainException("Reservation dates for updates must be future dates.");
